@@ -5,7 +5,8 @@ import os
 
 app = Flask(__name__)
 
-CORS(app)  # Enable CORS for all routes
+# Allow CORS for specific origins (localhost + Render)
+CORS(app, origins=["https://localhost:3000", "https://flask-api-p63c.onrender.com"])
 
 # Load RoBERTa model for text classification from Hugging Face
 classifier = pipeline(
